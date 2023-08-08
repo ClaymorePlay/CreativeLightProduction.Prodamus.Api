@@ -1,0 +1,9 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/CreativeLightProduction.Prodamus.Api/CreativeLightProduction.Prodamus.Api/obj
+.vs
+bin
+obj
+*.user

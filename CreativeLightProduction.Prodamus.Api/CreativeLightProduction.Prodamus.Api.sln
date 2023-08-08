@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeLightProduction.Prodamus.Api", "CreativeLightProduction.Prodamus.Api\CreativeLightProduction.Prodamus.Api.csproj", "{74C570E2-C34D-4E67-BC04-37D23A17D9A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreativeLightProduction.Prodamus.Api.Tests", "CreativeLightProduction.Prodamus.Api.Tests\CreativeLightProduction.Prodamus.Api.Tests.csproj", "{9FDEC04B-B32C-44C8-ADF1-7A4443A4E701}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74C570E2-C34D-4E67-BC04-37D23A17D9A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C570E2-C34D-4E67-BC04-37D23A17D9A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C570E2-C34D-4E67-BC04-37D23A17D9A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C570E2-C34D-4E67-BC04-37D23A17D9A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FDEC04B-B32C-44C8-ADF1-7A4443A4E701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FDEC04B-B32C-44C8-ADF1-7A4443A4E701}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FDEC04B-B32C-44C8-ADF1-7A4443A4E701}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FDEC04B-B32C-44C8-ADF1-7A4443A4E701}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {304CF78A-17DE-4B85-992E-F7B5F3A48ED6}
+	EndGlobalSection
+EndGlobal
