@@ -55,11 +55,11 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         public string Currency { get; set; }
 
 
-        ///// <summary>
-        ///// Сигнатура
-        ///// </summary>
-        //[JsonProperty("signature")]
-        //public string Signature { get; set; }
+        /// <summary>
+        /// Сигнатура
+        /// </summary>
+        [JsonProperty("signature")]
+        public string Signature { get; set; }
 
         /// <summary>
         /// идентификатор партнера (ПРОМОКОД)

@@ -19,6 +19,9 @@ namespace CreativeLightProduction.Prodamus.Api.Services
     /// </summary>
     public class PaymentService
     {
+        /// <summary>
+        /// Prodamus options
+        /// </summary>
         private readonly ProdamusOptions _options;
 
         public PaymentService(IOptions<ProdamusOptions> options)
@@ -37,17 +40,17 @@ namespace CreativeLightProduction.Prodamus.Api.Services
             var client = new HttpClient();
             var response = await client.GetAsync(_options.ServiceUrl + query);
 
-            //if (!response.IsSuccessStatusCode)
-            //    throw new Exception("Request failed");
+            if (!response.IsSuccessStatusCode)
+                throw new Exception($"Request failed. {await response.Content.ReadAsStringAsync()}");
 
             return new CreatePaymentUrlResponse
             {
-                Result = await response.Content.ReadAsStringAsync()
+                Result = Encoding.UTF8.GetString(await response.Content.ReadAsByteArrayAsync())
             };
         }
 
         /// <summary>
-        /// Построение параметров запроса
+        /// Build params http qoery
         /// </summary>
         /// <returns></returns>
         public string BuildQuery(CreatePaymentUrlRequest data)
@@ -57,6 +60,8 @@ namespace CreativeLightProduction.Prodamus.Api.Services
 
             return "?" + queryString;
         }
+
+
 
     }
 }
