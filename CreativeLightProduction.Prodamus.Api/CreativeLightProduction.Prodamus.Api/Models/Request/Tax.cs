@@ -22,15 +22,13 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         ///	6 - НДС чека по ставке 20%;
         ///	7 - НДС чека по расчётной ставке 20/120.
         /// </summary>
-        [JsonProperty("tax_type")]
         [Newtonsoft.Json.JsonConverter(typeof(PrimitiveToStringConverter))]
-        public TaxTypeEnum? TaxType { get; set; }
+        public TaxTypeEnum? tax_type { get; set; }
 
         /// <summary>
         /// (не обязательно) сумма налога, хх - при необходимости заменить
         /// </summary>
-        [JsonProperty("tax_sum")]
         [Newtonsoft.Json.JsonConverter(typeof(PrimitiveToStringConverter))]
-        public decimal? TaxSum { get; set; }
+        public decimal? tax_sum { get; set; }
     }
 }

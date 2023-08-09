@@ -13,35 +13,30 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         /// <summary>
         /// // id товара в системе интернет-магазина (не обязательно) - при необходимоти прописать 
         /// </summary>
-        [JsonProperty("sku")]
-        public string Sku { get; set; }
+        public string sku { get; set; }
 
         /// <summary>
         /// название товара - необходимо прописать название вашего товара (обязательный параметр)
         /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        public string name { get; set; }
 
         /// <summary>
         ///  цена за единицу товара (обязательный параметр)
         /// </summary>
-        [JsonProperty("price")]
         [Newtonsoft.Json.JsonConverter(typeof(PrimitiveToStringConverter))]
-        public double? Price { get; set; }
+        public double? price { get; set; }
 
         /// <summary>
         /// количество товара
         /// </summary>
-        [JsonProperty("quantity")]
         [Newtonsoft.Json.JsonConverter(typeof(PrimitiveToStringConverter))]
-        public int? Quantity { get; set; }
+        public int? quantity { get; set; }
 
         /// <summary>
         /// данные о налоге
         /// (не обязательно, если не указано будет взято из настроек Магазина на стороне системы)
         /// </summary>
-        [JsonProperty("tax")]
-        public Tax? Tax { get; set; }
+        public Tax? tax { get; set; }
 
         /// <summary>
         /// Тип оплаты, с возможными значениями (при необходимости заменить):
@@ -54,15 +49,13 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         ///	6 - передача предмета расчёта без его оплаты в момент его передачи с последующей оплатой в кредит;
         ///	7 - оплата предмета расчёта после его передачи с оплатой в кредит. (не обязательно, если не указано будет взято из настроек Магазина на стороне системы)
         /// </summary>
-        [JsonProperty("paymentMethod")]
-        public string PatmentMethod { get; set; }
+        public string paymentMethod { get; set; }
 
         /// <summary>
         /// Общая сумма
         /// </summary>
-        [JsonProperty("sum")]
         [Newtonsoft.Json.JsonConverter(typeof(PrimitiveToStringConverter))]
-        public double? Sum { get; set; }
+        public double? sum { get; set; }
 
         /// <summary>
         /// Тип оплачиваемой позиции, с возможными значениями (при необходимости заменить):
@@ -80,7 +73,6 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         ///	12 - составной предмет расчёта;
         ///	13 - иной предмет расчёта. (не обязательно, если не указано будет взято из настроек Магазина на стороне системы)
         /// </summary>
-        [JsonProperty("paymentObject")]
-        public string PaymentObject { get; set; }
+        public string paymentObject { get; set; }
     }
 }
