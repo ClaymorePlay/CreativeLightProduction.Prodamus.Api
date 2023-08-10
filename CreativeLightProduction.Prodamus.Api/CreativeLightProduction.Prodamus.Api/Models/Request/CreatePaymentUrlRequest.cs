@@ -15,25 +15,25 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         /// Обязательный
         /// </summary>
         [JsonProperty("order_id")]
-        public string OrderId { get; set; }
+        public string? OrderId { get; set; }
 
         /// <summary>
         ///  ИМЯ@prodamus.ru - e-mail адрес клиента
         /// </summary>
         [JsonProperty("customer_email")]
-        public string CustomerEmail { get; set; }
+        public string? CustomerEmail { get; set; }
 
         /// <summary>
         /// Телефон клиента
         /// </summary>
         [JsonProperty("customer_phone")]
-        public string CustomerPhone { get; set; }
+        public string? CustomerPhone { get; set; }
 
         /// <summary>
         /// Перечень товаров заказа
         /// </summary>
         [JsonProperty("products")]
-        public Product[] Products { get; set; }
+        public Product[]? Products { get; set; }
 
         /// <summary>
         /// id подписки (при необходимости прописать)
@@ -52,20 +52,20 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         ///P.S.Параметр должен быть в нижнем регистре.
         /// </summary>
         [JsonProperty("currency")]
-        public string Currency { get; set; }
+        public string? Currency { get; set; }
 
 
         /// <summary>
         /// Сигнатура
         /// </summary>
         [JsonProperty("signature")]
-        public string Signature { get; set; }
+        public string? Signature { get; set; }
 
         /// <summary>
         /// идентификатор партнера (ПРОМОКОД)
         /// </summary>
         [JsonProperty("ref")]
-        public string Ref { get; set; }
+        public string? Ref { get; set; }
 
         /// <summary>
         /// Вк id пользователя
@@ -78,13 +78,13 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         /// фио пользователя в ВК (при необходимости прописать)
         /// </summary>
         [JsonProperty("vk_user_name")]
-        public string VkUserName { get; set; }
+        public string? VkUserName { get; set; }
 
         /// <summary>
         /// дополнительные данные
         /// </summary>
         [JsonProperty("customer_extra")]
-        public string CustomerExtra { get; set; }
+        public string? CustomerExtra { get; set; }
 
         /// <summary>
         /// Лимит автовыплат
@@ -99,20 +99,20 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         ///"pay" - отправляет покупателя сразу на оплату.Используется для интернет-магазинов действие "Оплата" 
         /// </summary>
         [JsonProperty("do")]
-        public string Do { get; set; }
+        public string? Do { get; set; }
 
         /// <summary>
 		/// url-адрес для возврата пользователя без оплаты (при необходимости прописать свой адрес) 
 		/// </summary>
         [JsonProperty("urlReturn")]
-        public string UrlReturn { get; set; }
+        public string? UrlReturn { get; set; }
 
         /// <summary>
         /// url-адрес для возврата пользователя при успешной оплате 
         /// (при необходимости прописать свой адрес)
         /// </summary>
         [JsonProperty("urlSuccess")]
-        public string UrlSuccess { get; set; }
+        public string? UrlSuccess { get; set; }
 
         /// <summary>
         /// служебный url-адрес для уведомления интернет-магазина 
@@ -122,7 +122,7 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         /// (при необходимости прописать свой адрес)
         /// </summary>
         [JsonProperty("urlNotification")]
-        public string UrlNotification { get; set; }
+        public string? UrlNotification { get; set; }
 
         /// <summary>
         /// код системы интернет-магазина, запросить у поддержки, 
@@ -130,19 +130,19 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         /// (при необходимости прописать свой код)
         /// </summary>
         [JsonProperty("sys")]
-        public string Sys { get; set; }
+        public string? Sys { get; set; }
 
         /// <summary>
         /// Параметр для проверки негативного сценария с отказом по рассрочке. ❗Работает только в демо-режиме❗ Доступное значение: reject
         /// </summary>
         [JsonProperty("demoFlow")]
-        public string DemoFlow { get; set; }
+        public string? DemoFlow { get; set; }
 
         /// <summary>
         /// Если  передано значение 1, то платеж пройдет в демо-режиме
         /// </summary>
         [JsonProperty("demo_mode")]
-        public string DemoMode { get; set; }
+        public string? DemoMode { get; set; }
 
 
 
@@ -165,7 +165,7 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         /// 	GP - платежный терминал
         /// </summary>
         [JsonProperty("payment_method")]
-        public string PaymentMethod { get; set; }
+        public string? PaymentMethod { get; set; }
 
         /// <summary>
         /// сумма скидки на заказ
@@ -201,7 +201,7 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         /// Если передано значение json, то веб-хуки от Продамуса будут приходить в формате json
         /// </summary>
         [JsonProperty("callbackType")]
-        public string CallbackType { get; set; }
+        public string? CallbackType { get; set; }
 
         /// <summary>
         /// инн плательщика (при необходимости прописат)
@@ -209,13 +209,13 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         ///      и тип плательщика FROM_LEGAL_ENTITY)
         /// </summary>
         [JsonProperty("npd_income_inn")]
-        public string NpdIncomeInn { get; set; }
+        public string? NpdIncomeInn { get; set; }
 
         /// <summary>
         /// Лимит оплат по сформированной ссылке
         /// </summary>
         [JsonProperty("payments_limit")]
-        public string PaymentsLimit { get; set; }
+        public string? PaymentsLimit { get; set; }
 
         /// <summary>
         /// Эквайринг.
@@ -227,7 +227,7 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         ///xpaykz
         /// </summary>
         [JsonProperty("acquiring")]
-        public string Acquiring { get; set; }
+        public string? Acquiring { get; set; }
 
         /// <summary>
         /// название компании плательщика (при необходимости прописать название)
@@ -235,7 +235,7 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         ///           и тип плательщика FROM_LEGAL_ENTITY или FROM_FOREIGN_AGENCY)
         /// </summary>
         [JsonProperty("npd_income_company")]
-        public string NpdIncomeCompany { get; set; }
+        public string? NpdIncomeCompany { get; set; }
 
         /// <summary>
         /// срок действия ссылки в формате: дд.мм.гггг чч:мм или гггг-мм-дд чч:мм
@@ -243,7 +243,7 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         ///      (не обязательно, по умолчанию срок действия ссылки не ограничен)
         /// </summary>
         [JsonProperty("link_expired")]
-        public string LinkExpired { get; set; }
+        public string? LinkExpired { get; set; }
 
         /// <summary>
         /// дата начала подписки в формате: дд.мм.гггг чч:мм или гггг-мм-дд чч:мм
@@ -252,14 +252,14 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         ///       по умолчанию текущая дата/время)
         /// </summary>
         [JsonProperty("subscription_date_start")]
-        public string SubscriptionDateStart { get; set; }
+        public string? SubscriptionDateStart { get; set; }
 
         /// <summary>
         /// текст который будет показан пользователю после совершения оплаты
 	    ///       (не обязательно)
         /// </summary>
         [JsonProperty("paid_content")]
-        public string PaidContent { get; set; }
+        public string? PaidContent { get; set; }
 
 
 
