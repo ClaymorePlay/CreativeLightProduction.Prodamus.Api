@@ -1,4 +1,5 @@
 ﻿using CreativeLightProduction.Prodamus.Api.Extensions;
+using CreativeLightProduction.Prodamus.Api.Interfaces;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CreativeLightProduction.Prodamus.Api.Models.Request
 {
-    public class NotificationModel
+    public class NotificationModel : ISignatureModel
     {
         /// <summary>
         /// дата платежа
