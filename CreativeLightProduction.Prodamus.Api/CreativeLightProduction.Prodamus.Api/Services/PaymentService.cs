@@ -85,7 +85,7 @@ namespace CreativeLightProduction.Prodamus.Api.Services
         {
             try
             {
-                var requestSign = data.Notification.GetSignature(data.Signature);
+                var requestSign = data.Notification.GetSignature(_options.SecretKey);
 
                 if (String.IsNullOrWhiteSpace(requestSign))
                     throw new Exception("Signature not found");

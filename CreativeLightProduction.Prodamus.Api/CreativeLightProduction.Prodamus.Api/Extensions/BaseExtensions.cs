@@ -112,7 +112,7 @@ namespace CreativeLightProduction.Prodamus.Api.Extensions
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        private static Dictionary<string, object> StrValAndSort(Dictionary<string, object> data)
+        public static Dictionary<string, object> StrValAndSort(Dictionary<string, object> data)
         {
             data = (Dictionary<string, object>)SortObject(data);
             foreach (var item in data)
@@ -123,7 +123,7 @@ namespace CreativeLightProduction.Prodamus.Api.Extensions
                         data[item.Key] = StrValAndSort((Dictionary<string, object>)data[item.Key]);
 
                     else
-                        data[item.Key] = data.First(c => c.Key == item.Key).ToString();
+                        data[item.Key] = data.First(c => c.Key == item.Key).Value.ToString();
                 }
             }
             return data;

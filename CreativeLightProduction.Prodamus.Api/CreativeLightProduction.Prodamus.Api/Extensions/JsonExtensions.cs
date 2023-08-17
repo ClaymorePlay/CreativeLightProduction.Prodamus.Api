@@ -75,6 +75,9 @@ namespace CreativeLightProduction.Prodamus.Api.Extensions
             if (value is decimal || value is double && value != null)
                 writer.WriteValue(String.Format("{0:0.00}", value).ToLower().Replace(',', '.'));
 
+            else if (value is bool)
+                writer.WriteValue(Convert.ToInt16(value).ToString());
+
             else if (value != null)
                 writer.WriteValue(value.ToString().ToLower());
         }

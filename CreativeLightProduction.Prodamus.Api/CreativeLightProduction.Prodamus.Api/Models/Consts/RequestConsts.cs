@@ -10,7 +10,7 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Consts
     {
         public const string SetSubscriptionDiscountUri = "/rest/setSubscriptionDiscount/";
 
-        public const string SetActivityUri = "/rest/setActivity/";
+        public const string SetActivityUri = "/rest/setActivity";
 
         public const string SetSubscriptionPaymentDate = "/rest/setSubscriptionPaymentDate/";
     }

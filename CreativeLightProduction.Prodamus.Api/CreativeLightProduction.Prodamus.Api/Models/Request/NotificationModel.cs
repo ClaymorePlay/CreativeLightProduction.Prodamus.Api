@@ -36,6 +36,9 @@ namespace CreativeLightProduction.Prodamus.Api.Models.Request
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string? domain { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string? payment_init { get; set; }
+
         /// <summary>
         /// сумма заказа
         /// </summary>
