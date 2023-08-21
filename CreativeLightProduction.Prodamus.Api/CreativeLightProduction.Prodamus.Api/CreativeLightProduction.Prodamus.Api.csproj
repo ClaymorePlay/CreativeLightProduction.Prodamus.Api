@@ -4,6 +4,16 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <version>6.0.0</version>
+    <Title>CreativeLightProduction.Prodamus.Api</Title>
+    <Authors>CreativeLightProduction, ClaymorePlay</Authors>
+    <Company>CreativeLightProduction </Company>
+    <Description>Easy solution for interaction with Prodamus API</Description>
+    <Copyright>Copyright (c) CreativeLightProduction 2023</Copyright>
+    <PackageProjectUrl>https://github.com/ClaymorePlay/Prodamus.Api</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ClaymorePlay/Prodamus.Api</RepositoryUrl>
+    <PackageTags>prodamus;api;integration;net</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
