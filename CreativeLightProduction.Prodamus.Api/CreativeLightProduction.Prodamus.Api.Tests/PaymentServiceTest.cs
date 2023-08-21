@@ -19,6 +19,15 @@ namespace CreativeLightProduction.Prodamus.Api.Tests
         private readonly string _secretKey = "2y2aw4oknnke80bp1a8fniwuuq7tdkwmmuq7vwi4nzbr8z1182ftbn6p8mhw3bhz";
         private readonly string _baseUrl = "https://demo.payform.ru";
 
+        /// <summary>
+        /// Get payment url test
+        /// </summary>
+        /// <param name="doType"></param>
+        /// <param name="orderId"></param>
+        /// <param name="customerPhone"></param>
+        /// <param name="customerExtra"></param>
+        /// <param name="productName"></param>
+        /// <param name="productPrice"></param>
         [TestMethod]
         [DataRow("link", "test2", "79998887755", "Полная оплата курса", "Обучающие материалы", "10000")]
         [DataRow("link", "test3", "79998887755", "Full payment", "Materials", "10000")]
@@ -51,7 +60,7 @@ namespace CreativeLightProduction.Prodamus.Api.Tests
         }
 
         /// <summary>
-        /// Подтверждение платежа
+        /// Payment verify test
         /// </summary>
         [TestMethod]
         [DataRow("7bc9510a64e3e31e730b865866b5d15c7603482e610b13b5cbeef779cda443a4", "2023-08-02T00:00:00+03:00", "1", "test", "edvibe.payform.ru",

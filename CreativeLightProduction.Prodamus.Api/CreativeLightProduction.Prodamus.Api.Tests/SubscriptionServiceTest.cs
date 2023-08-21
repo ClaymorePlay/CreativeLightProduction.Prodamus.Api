@@ -1,6 +1,7 @@
 using CreativeLightProduction.Prodamus.Api.Interfaces;
 using CreativeLightProduction.Prodamus.Api.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Threading.Tasks;
 
 namespace CreativeLightProduction.Prodamus.Api.Tests
@@ -34,6 +35,8 @@ namespace CreativeLightProduction.Prodamus.Api.Tests
                 ActiveUser = activeUser
             });
 
+            Console.WriteLine(response.ErrorMessage);
+
             Assert.IsNotNull(response?.Data);
             Assert.IsTrue(response.Data && response.IsSuccess);
         }
@@ -59,6 +62,8 @@ namespace CreativeLightProduction.Prodamus.Api.Tests
                 DiscountValue = discount_value
             });
 
+            Console.WriteLine(response.ErrorMessage);
+
             Assert.IsNotNull(response?.Data);
             Assert.IsTrue(response.Data && response.IsSuccess);
         }
@@ -83,6 +88,8 @@ namespace CreativeLightProduction.Prodamus.Api.Tests
                 Date = date,
                 VkUserId = vk_user_id
             });
+
+            Console.WriteLine(response.ErrorMessage);
 
             Assert.IsNotNull(response?.Data);
             Assert.IsTrue(response.Data && response.IsSuccess);
