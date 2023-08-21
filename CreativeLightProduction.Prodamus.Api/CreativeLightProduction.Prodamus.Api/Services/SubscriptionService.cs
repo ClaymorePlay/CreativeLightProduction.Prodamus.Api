@@ -36,6 +36,7 @@ namespace CreativeLightProduction.Prodamus.Api.Services
 
         /// <summary>
         /// This method is used to manage the statuses (activation/deactivation) of the subscription
+        /// https://help.prodamus.ru/payform/integracii/rest-api-1/setactivity
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -46,41 +47,28 @@ namespace CreativeLightProduction.Prodamus.Api.Services
                 var signature = request.GetSignature(_options.SecretKey);
                 request.Signature = signature;
 
-                var values = ToNameValueCollection(request);
-
-                WebClient client = new WebClient();
-                client.Headers.Add("Content-type", "application/x-www-form-urlencoded");
-
+                var dict = BaseExtensions.GetDictionaryFromRequest(request);
                 string url = _options.ServiceUrl + RequestConsts.SetActivityUri;
-                byte[] responseBytes = client.UploadValues(url, "POST", values);
-                string response = System.Text.Encoding.UTF8.GetString(responseBytes);
 
-                return new BaseResponse<bool>
+                using (var client = new HttpClient())
                 {
-                    StatusCode = HttpStatusCode.OK,
-                    IsSuccess = true,
-                    Data = true,
-                    ErrorMessage = response,
-                };
-            }
-            catch (WebException e)
-            {
-                var error = "";
+                    var content = new FormUrlEncodedContent(dict.ToDictionary(k => k.Key, v => v.Value.ToString()));
 
-                if (e.Status == WebExceptionStatus.ProtocolError)
-                {
-                    using (StreamReader r = new StreamReader(((HttpWebResponse)e.Response).GetResponseStream()))
+                    var response = await client.PostAsync(url, content);
+                    var error = Encoding.UTF8.GetString(await response.Content.ReadAsByteArrayAsync());
+
+                    if (!response.IsSuccessStatusCode)
+                        throw new Exception(error);
+                
+
+                    return new BaseResponse<bool>
                     {
-                        error = r.ReadToEnd();
-                    }
+                        StatusCode = HttpStatusCode.OK,
+                        IsSuccess = true,
+                        Data = true,
+                        Headers = response.Headers
+                    };
                 }
-                return new BaseResponse<bool>
-                {
-                    IsSuccess = false,
-                    ErrorMessage = e.Message + error,
-                    Trace = e.StackTrace,
-                    Data = false
-                };
             }
             catch (Exception ex)
             {
@@ -94,36 +82,9 @@ namespace CreativeLightProduction.Prodamus.Api.Services
             }
         }
 
-
-
-
-        public async Task<TResult> Post<TResult>(string url, object data)
-        {
-            using var client = new HttpClient();
-
-            var content = JsonContent.Create(data);
-            var response = await client.PostAsync(url, content);
-            var result = await response.Content.ReadAsByteArrayAsync();
-            var srt = Encoding.UTF8.GetString(result);
-
-            return JsonConvert.DeserializeObject<TResult>(srt);
-        }
-
-
-
-        private NameValueCollection ToNameValueCollection<T>(T dynamicObject)
-        {
-            var nameValueCollection = new NameValueCollection();
-            foreach (PropertyDescriptor propertyDescriptor in TypeDescriptor.GetProperties(dynamicObject))
-            {
-                string value = propertyDescriptor.GetValue(dynamicObject).ToString();
-                nameValueCollection.Add(propertyDescriptor.Name, value);
-            }
-            return nameValueCollection;
-        }
-
         /// <summary>
         /// This method is used to manage the subscription discount
+        /// https://help.prodamus.ru/payform/integracii/rest-api-1/setsubscriptiondiscount
         /// </summary>
         /// <returns></returns>
         public async Task<BaseResponse<bool>> SetSubscriptionDiscount(SetSubscriptionDiscountRequest request)
@@ -135,8 +96,11 @@ namespace CreativeLightProduction.Prodamus.Api.Services
 
                 var content = new FormUrlEncodedContent(ToDictionary(request));
 
-                var client = new HttpClient();
+                using var client = new HttpClient();
                 var response = await client.PostAsync(_options.ServiceUrl + RequestConsts.SetSubscriptionDiscountUri, content);
+
+                if (!response.IsSuccessStatusCode)
+                    throw new Exception(Encoding.UTF8.GetString(await response.Content.ReadAsByteArrayAsync()));
 
                 return new BaseResponse<bool>
                 {
@@ -163,6 +127,7 @@ namespace CreativeLightProduction.Prodamus.Api.Services
         /// Using this method, you can shift the date of the next subscription payment. 
         /// You can only shift the date "into the future" relative to the current set date for the next payment. 
         /// Thus increasing the length of stay in the club.
+        /// https://help.prodamus.ru/payform/integracii/rest-api-1/setsubscriptionpaymentdate
         /// </summary>
         /// <returns></returns>
         public async Task<BaseResponse<bool>> SetSubscriptionPaymentDate(SetSubscriptionPaymentDateRequest request)
@@ -176,6 +141,10 @@ namespace CreativeLightProduction.Prodamus.Api.Services
 
                 var client = new HttpClient();
                 var response = await client.PostAsync(_options.ServiceUrl + RequestConsts.SetSubscriptionPaymentDate, content);
+
+                if (!response.IsSuccessStatusCode)
+                    throw new Exception(Encoding.UTF8.GetString(await response.Content.ReadAsByteArrayAsync()));
+
 
                 return new BaseResponse<bool>
                 {

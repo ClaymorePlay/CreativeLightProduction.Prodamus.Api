@@ -123,7 +123,7 @@ namespace CreativeLightProduction.Prodamus.Api.Extensions
                         data[item.Key] = StrValAndSort((Dictionary<string, object>)data[item.Key]);
 
                     else
-                        data[item.Key] = data.First(c => c.Key == item.Key).Value.ToString();
+                        data[item.Key] = data.First(c => c.Key == item.Key).Value.ToString() ?? "";
                 }
             }
             return data;

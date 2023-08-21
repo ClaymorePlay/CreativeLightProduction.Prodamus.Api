@@ -34,6 +34,7 @@ namespace CreativeLightProduction.Prodamus.Api.Services
 
         /// <summary>
         /// Create a payment url
+        /// https://help.prodamus.ru/payform/integracii/tekhnicheskaya-dokumentaciya-po-avtoplatezham/formirovanie-ssylki-na-oplatu
         /// </summary>
         /// <returns></returns>
         public async Task<BaseResponse<CreatePaymentUrlResponse>> CreatePaymentUrl(CreatePaymentUrlRequest request)
@@ -77,6 +78,7 @@ namespace CreativeLightProduction.Prodamus.Api.Services
 
         /// <summary>
         /// Verify payment
+        /// https://help.prodamus.ru/payform/integracii/rest-api/instrukcii-dlya-samostoyatelnaya-integracii-servisov
         /// </summary>
         /// <param name="data"></param>
         /// <param name="signature"></param>
