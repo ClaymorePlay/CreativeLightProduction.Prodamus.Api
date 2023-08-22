@@ -44,8 +44,9 @@ namespace CreativeLightProduction.Prodamus.Api.Services
                 var query = BuildQuery(request);
 
                 var client = new HttpClient();
-                var response = await client.GetAsync(_options.ServiceUrl + query);
+                ConfigureHttpClient(client);
 
+                var response = await client.GetAsync(_options.ServiceUrl + query);
                 var data = Encoding.UTF8.GetString(await response.Content.ReadAsByteArrayAsync());
 
                 return new BaseResponse<CreatePaymentUrlResponse>
@@ -125,6 +126,19 @@ namespace CreativeLightProduction.Prodamus.Api.Services
             var queryString = obj.ToUrlEncodedQueryString();
 
             return "?" + queryString;
+        }
+
+        /// <summary>
+        /// Configure http client for request
+        /// </summary>
+        /// <param name="client"></param>
+        private void ConfigureHttpClient(HttpClient client)
+        {
+            if (_options.MaxResponseContentBufferSize.HasValue)
+                client.MaxResponseContentBufferSize = _options.MaxResponseContentBufferSize.Value;
+
+            if (_options.Timeout.HasValue)
+                client.Timeout = _options.Timeout.Value;
         }
     }
 }

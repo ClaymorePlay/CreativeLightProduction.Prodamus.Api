@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace CreativeLightProduction.Prodamus.Api.Extensions
 {
+    /// <summary>
+    /// Startup extension
+    /// </summary>
     public static class StartupExtensions
     {
         /// <summary>
