@@ -22,6 +22,9 @@ using System.Threading.Tasks;
 
 namespace CreativeLightProduction.Prodamus.Api.Services
 {
+    /// <summary>
+    /// Subscription management service
+    /// </summary>
     public class SubscriptionService : ISubscriptionService
     {
         /// <summary>
@@ -52,6 +55,7 @@ namespace CreativeLightProduction.Prodamus.Api.Services
 
                 using (var client = new HttpClient())
                 {
+                    ConfigureHttpClient(client);
                     var content = new FormUrlEncodedContent(dict.ToDictionary(k => k.Key, v => v.Value.ToString()));
 
                     var response = await client.PostAsync(url, content);
@@ -97,6 +101,7 @@ namespace CreativeLightProduction.Prodamus.Api.Services
                 var content = new FormUrlEncodedContent(ToDictionary(request));
 
                 using var client = new HttpClient();
+                ConfigureHttpClient(client);
                 var response = await client.PostAsync(_options.ServiceUrl + RequestConsts.SetSubscriptionDiscountUri, content);
 
                 if (!response.IsSuccessStatusCode)
@@ -140,6 +145,7 @@ namespace CreativeLightProduction.Prodamus.Api.Services
                 var content = new FormUrlEncodedContent(ToDictionary(request));
 
                 var client = new HttpClient();
+                ConfigureHttpClient(client);
                 var response = await client.PostAsync(_options.ServiceUrl + RequestConsts.SetSubscriptionPaymentDate, content);
 
                 if (!response.IsSuccessStatusCode)
@@ -178,6 +184,20 @@ namespace CreativeLightProduction.Prodamus.Api.Services
             };
 
             return dictionary;
+        }
+
+
+        /// <summary>
+        /// Configure http client for request
+        /// </summary>
+        /// <param name="client"></param>
+        private void ConfigureHttpClient(HttpClient client)
+        {
+            if (_options.MaxResponseContentBufferSize.HasValue)
+                client.MaxResponseContentBufferSize = _options.MaxResponseContentBufferSize.Value;
+
+            if (_options.Timeout.HasValue)
+                client.Timeout = _options.Timeout.Value;
         }
     }
 }

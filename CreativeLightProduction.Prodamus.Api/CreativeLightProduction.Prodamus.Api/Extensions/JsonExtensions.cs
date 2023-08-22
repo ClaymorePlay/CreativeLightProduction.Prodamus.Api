@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace CreativeLightProduction.Prodamus.Api.Extensions
 {
+    /// <summary>
+    /// Json extensions
+    /// </summary>
     public static class JsonExtensions
     {
         public static string ToUrlEncodedQueryString(this JContainer container)
@@ -62,7 +65,9 @@ namespace CreativeLightProduction.Prodamus.Api.Extensions
         }
     }
 
-
+    /// <summary>
+    /// Primitive json converter to string
+    /// </summary>
     class PrimitiveToStringConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)

@@ -10,8 +10,17 @@ using System.Threading.Tasks;
 
 namespace CreativeLightProduction.Prodamus.Api.Extensions
 {
+    /// <summary>
+    /// Base extensions
+    /// </summary>
     public static class BaseExtensions
     {
+        /// <summary>
+        /// Get signature for request
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="secretKey"></param>
+        /// <returns></returns>
         public static string GetSignature(this ISignatureModel obj, string secretKey)
         {
             var dict = GetDictionaryFromRequest(obj);
@@ -22,7 +31,7 @@ namespace CreativeLightProduction.Prodamus.Api.Extensions
 
 
         /// <summary>
-        /// Получить ключ значение из запроса
+        /// Get key value from request
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="request"></param>
@@ -50,7 +59,7 @@ namespace CreativeLightProduction.Prodamus.Api.Extensions
 
 
         /// <summary>
-        /// Создание сигнатуры
+        /// Create a signature
         /// </summary>
         /// <param name="data"></param>
         /// <param name="key"></param>
@@ -82,7 +91,7 @@ namespace CreativeLightProduction.Prodamus.Api.Extensions
 
 
         /// <summary>
-        /// Исправление json для формирования хэша
+        /// Correcting json to form a hash
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
@@ -108,7 +117,7 @@ namespace CreativeLightProduction.Prodamus.Api.Extensions
 
 
         /// <summary>
-        /// Сортировка
+        /// Sort
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
@@ -132,7 +141,7 @@ namespace CreativeLightProduction.Prodamus.Api.Extensions
 
 
         /// <summary>
-        /// Сортировка
+        /// Sort
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
