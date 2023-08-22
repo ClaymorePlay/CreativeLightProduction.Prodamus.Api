@@ -1,4 +1,5 @@
-﻿# CreativeLightProduction.Prodamus.Api
+https://www.nuget.org/packages/CreativeLightProduction.Prodamus.Api/
+ # CreativeLightProduction.Prodamus.Api
 ## EN
 ### Connection
 To connect the service, you can use ready-made extensions **StartupExtensions**.
